@@ -1,0 +1,1479 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/1/2023 2:32:51 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-I3CQ5IO"
+  DTS:CreatorName="DESKTOP-I3CQ5IO\mosta"
+  DTS:DTSID="{4CFB5E96-A3C6-4933-BD38-40CF9F510030}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3008.28"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="playlist"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{D7A03F0B-4489-47AA-8904-2C4C78915168}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{0AF08E00-CC16-4960-B24F-D88D5C3C6761}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\FCI-H\SSIS Projects\SSIS Project - generate a playlist from a workbook of songs\Million-sellers.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\generate a playlist from a workbook of songs"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{936775F8-BAA9-40F6-A6F3-164465291450}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="generate a playlist from a workbook of songs"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\generate a playlist from a workbook of songs\combine the two lists"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="combine the two lists"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 1].Columns[Artist]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Artist"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Artist]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Artist]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 1].Columns[Rank]"
+                      cachedDataType="r8"
+                      cachedName="Rank"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Rank]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Rank]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 1].Columns[Sales]"
+                      cachedDataType="r8"
+                      cachedName="Sales"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Sales]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Sales]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 1].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Title"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Title]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Title]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 1].Columns[Year]"
+                      cachedDataType="r8"
+                      cachedName="Year"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Year]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Year]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 2].Columns[Artist]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Artist"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Artist]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Artist]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 2].Columns[Rank]"
+                      cachedDataType="r8"
+                      cachedName="Rank"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Rank]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Rank]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 2].Columns[Sales]"
+                      cachedDataType="r8"
+                      cachedName="Sales"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Sales]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Sales]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 2].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Title"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Title]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Title]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 2].Columns[Year]"
+                      cachedDataType="r8"
+                      cachedName="Year"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Year]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Year]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Artist]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Artist]"
+                      name="Artist" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Rank]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Rank]"
+                      name="Rank" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Sales]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Sales]"
+                      name="Sales" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Title]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Year]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Year]"
+                      name="Year" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\generate a playlist from a workbook of songs\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">songs$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\generate a playlist from a workbook of songs\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Artist]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].ExternalColumns[Artist]"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Artist]"
+                      name="Artist"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Rank]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].ExternalColumns[Rank]"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Rank]"
+                      name="Rank"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sales]"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Sales]"
+                      name="Sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].ExternalColumns[Title]"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Year]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].ExternalColumns[Year]"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].ExternalColumns[Artist]"
+                      dataType="wstr"
+                      length="255"
+                      name="Artist" />
+                    <externalMetadataColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].ExternalColumns[Rank]"
+                      dataType="r8"
+                      name="Rank" />
+                    <externalMetadataColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].ExternalColumns[Sales]"
+                      dataType="r8"
+                      name="Sales" />
+                    <externalMetadataColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="255"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].ExternalColumns[Year]"
+                      dataType="r8"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].ExternalColumns[F6]"
+                      dataType="wstr"
+                      length="255"
+                      name="F6" />
+                    <externalMetadataColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].ExternalColumns[F7]"
+                      dataType="wstr"
+                      length="255"
+                      name="F7" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[Artist]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[Artist]"
+                      name="Artist" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[Rank]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[Rank]"
+                      name="Rank" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[Sales]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[Sales]"
+                      name="Sales" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[Title]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[Year]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[Year]"
+                      name="Year" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\generate a playlist from a workbook of songs\Percentage Sampling to list2"
+              componentClassID="Microsoft.PctSampling"
+              contactInfo="Percentage Sampling;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Randomly samples a percentage of rows from an input data flow. For example, use it twice to help create a data mining model: create one sample for training the model and another sample for testing the model."
+              name="Percentage Sampling to list2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage size of the sample."
+                  expressionType="Notify"
+                  name="SamplingValue">10</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the seed for the random number generator."
+                  name="SamplingSeed">0</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\generate a playlist from a workbook of songs\Percentage Sampling to list2.Inputs[Percentage Sampling Input 1]"
+                  name="Percentage Sampling Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\Percentage Sampling to list2.Outputs[List 2]"
+                  exclusionGroup="1"
+                  name="List 2"
+                  synchronousInputId="Package\generate a playlist from a workbook of songs\Percentage Sampling to list2.Inputs[Percentage Sampling Input 1]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Output for rows in the sample"
+                      name="Selected">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\Percentage Sampling to list2.Outputs[Sampling Unselected Output]"
+                  exclusionGroup="1"
+                  name="Sampling Unselected Output"
+                  synchronousInputId="Package\generate a playlist from a workbook of songs\Percentage Sampling to list2.Inputs[Percentage Sampling Input 1]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Output for rows in the sample"
+                      name="Selected">false</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1"
+              componentClassID="Microsoft.RowSampling"
+              contactInfo="Row Sampling;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Randomly samples a specific number of rows from an input data flow. For example, use it randomly select products to feature on your Web site."
+              name="Row Sampling to list1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of rows in the sample."
+                  expressionType="Notify"
+                  name="SamplingValue">6</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the seed for the random number generator."
+                  name="SamplingSeed">0</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Inputs[Row Sampling Input 1]"
+                  name="Row Sampling Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Inputs[Row Sampling Input 1].Columns[Artist]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Artist"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Artist]" />
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Inputs[Row Sampling Input 1].Columns[Rank]"
+                      cachedDataType="r8"
+                      cachedName="Rank"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Rank]" />
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Inputs[Row Sampling Input 1].Columns[Sales]"
+                      cachedDataType="r8"
+                      cachedName="Sales"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Sales]" />
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Inputs[Row Sampling Input 1].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Title"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Inputs[Row Sampling Input 1].Columns[Year]"
+                      cachedDataType="r8"
+                      cachedName="Year"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Year]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1]"
+                  name="List 1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Output for rows in the sample"
+                      name="Selected">true</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Artist]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Artist]"
+                      name="Artist">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Artist]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Rank]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Rank]"
+                      name="Rank">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Rank]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Sales]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Sales]"
+                      name="Sales">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Sales]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Title]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Title]"
+                      name="Title">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Title]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Year]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1].Columns[Year]"
+                      name="Year">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Year]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[Sampling Unselected Output]"
+                  name="Sampling Unselected Output">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Output for rows in the sample"
+                      name="Selected">false</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[Sampling Unselected Output].Columns[Artist]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[Sampling Unselected Output].Columns[Artist]"
+                      name="Artist">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Artist]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[Sampling Unselected Output].Columns[Rank]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[Sampling Unselected Output].Columns[Rank]"
+                      name="Rank">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Rank]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[Sampling Unselected Output].Columns[Sales]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[Sampling Unselected Output].Columns[Sales]"
+                      name="Sales">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Sales]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[Sampling Unselected Output].Columns[Title]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[Sampling Unselected Output].Columns[Title]"
+                      name="Title">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Title]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[Sampling Unselected Output].Columns[Year]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[Sampling Unselected Output].Columns[Year]"
+                      name="Year">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Input column lineage ID"
+                          name="InputColumnLineageID">#{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Year]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\generate a playlist from a workbook of songs\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\generate a playlist from a workbook of songs\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Sort.Inputs[Sort Input].Columns[Artist]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Artist"
+                      lineageId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Artist]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Sort.Inputs[Sort Input].Columns[Rank]"
+                      cachedDataType="r8"
+                      cachedName="Rank"
+                      lineageId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Rank]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Sort.Inputs[Sort Input].Columns[Sales]"
+                      cachedDataType="r8"
+                      cachedName="Sales"
+                      lineageId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Sales]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Sort.Inputs[Sort Input].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Title"
+                      lineageId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Title]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Sort.Inputs[Sort Input].Columns[Year]"
+                      cachedDataType="r8"
+                      cachedName="Year"
+                      lineageId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Year]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Artist]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Artist]"
+                      name="Artist">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Artist]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Rank]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Rank]"
+                      name="Rank"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Rank]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Sales]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Sales]"
+                      name="Sales">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Sales]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Title]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Title]"
+                      name="Title">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Title]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Year]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Year]"
+                      name="Year">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1].Columns[Year]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\generate a playlist from a workbook of songs\split to two lists"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="split to two lists"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\generate a playlist from a workbook of songs\split to two lists.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\split to two lists.Inputs[Conditional Split Input].Columns[Rank]"
+                      cachedDataType="r8"
+                      cachedName="Rank"
+                      lineageId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Rank]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\split to two lists.Outputs[List 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="List 1"
+                  synchronousInputId="Package\generate a playlist from a workbook of songs\split to two lists.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="IgnoreFailure">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Rank]} &lt;= 62</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Rank &lt;= 62</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\split to two lists.Outputs[List 2]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="List 2"
+                  synchronousInputId="Package\generate a playlist from a workbook of songs\split to two lists.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="IgnoreFailure">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Rank]} &lt;= 123 &amp;&amp; #{Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output].Columns[Rank]} &gt; 62</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Rank &lt;= 123 &amp;&amp; Rank &gt; 62</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\split to two lists.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\generate a playlist from a workbook of songs\split to two lists.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\split to two lists.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\generate a playlist from a workbook of songs\split to two lists.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\split to two lists.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\generate a playlist from a workbook of songs\split to two lists.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\split to two lists.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\generate a playlist from a workbook of songs\split to two lists.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\generate a playlist from a workbook of songs\the playlist f songs"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="the playlist f songs"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Inputs[Union All Input 1].Columns[Artist]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Artist"
+                      lineageId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Artist]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Artist]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Inputs[Union All Input 1].Columns[Rank]"
+                      cachedDataType="r8"
+                      cachedName="Rank"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Rank]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Rank]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Inputs[Union All Input 1].Columns[Sales]"
+                      cachedDataType="r8"
+                      cachedName="Sales"
+                      lineageId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Sales]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Sales]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Inputs[Union All Input 1].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Title"
+                      lineageId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Title]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Title]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Inputs[Union All Input 1].Columns[Year]"
+                      cachedDataType="r8"
+                      cachedName="Year"
+                      lineageId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output].Columns[Year]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Year]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Inputs[Union All Input 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Artist]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Artist]"
+                      name="Artist" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Rank]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Rank]"
+                      name="Rank" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Sales]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Sales]"
+                      name="Sales" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Title]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Year]"
+                      dataType="r8"
+                      lineageId="Package\generate a playlist from a workbook of songs\the playlist f songs.Outputs[Union All Output 1].Columns[Year]"
+                      name="Year" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\generate a playlist from a workbook of songs.Paths[Excel Source Output]"
+              endId="Package\generate a playlist from a workbook of songs\split to two lists.Inputs[Conditional Split Input]"
+              name="Excel Source Output"
+              startId="Package\generate a playlist from a workbook of songs\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\generate a playlist from a workbook of songs.Paths[List 1]"
+              endId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Inputs[Row Sampling Input 1]"
+              name="List 1"
+              startId="Package\generate a playlist from a workbook of songs\split to two lists.Outputs[List 1]" />
+            <path
+              refId="Package\generate a playlist from a workbook of songs.Paths[List 11]"
+              endId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 1]"
+              name="List 1"
+              startId="Package\generate a playlist from a workbook of songs\Row Sampling to list1.Outputs[List 1]" />
+            <path
+              refId="Package\generate a playlist from a workbook of songs.Paths[List 2]"
+              endId="Package\generate a playlist from a workbook of songs\Percentage Sampling to list2.Inputs[Percentage Sampling Input 1]"
+              name="List 2"
+              startId="Package\generate a playlist from a workbook of songs\split to two lists.Outputs[List 2]" />
+            <path
+              refId="Package\generate a playlist from a workbook of songs.Paths[List 21]"
+              endId="Package\generate a playlist from a workbook of songs\combine the two lists.Inputs[Union All Input 2]"
+              name="List 2"
+              startId="Package\generate a playlist from a workbook of songs\Percentage Sampling to list2.Outputs[List 2]" />
+            <path
+              refId="Package\generate a playlist from a workbook of songs.Paths[Sort Output]"
+              endId="Package\generate a playlist from a workbook of songs\the playlist f songs.Inputs[Union All Input 1]"
+              name="Sort Output"
+              startId="Package\generate a playlist from a workbook of songs\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\generate a playlist from a workbook of songs.Paths[Union All Output 1]"
+              endId="Package\generate a playlist from a workbook of songs\Sort.Inputs[Sort Input]"
+              name="Union All Output 1"
+              startId="Package\generate a playlist from a workbook of songs\combine the two lists.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="292,42"
+          Id="Package\generate a playlist from a workbook of songs"
+          TopLeft="264,86" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\generate a playlist from a workbook of songs">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\generate a playlist from a workbook of songs\Excel Source"
+          TopLeft="209,8" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\generate a playlist from a workbook of songs\split to two lists"
+          TopLeft="199,79" />
+        <EdgeLayout
+          Id="Package\generate a playlist from a workbook of songs.Paths[Excel Source Output]"
+          TopLeft="277,50">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="181,42"
+          Id="Package\generate a playlist from a workbook of songs\Row Sampling to list1"
+          TopLeft="85,166" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\generate a playlist from a workbook of songs\Percentage Sampling to list2"
+          TopLeft="383,156" />
+        <EdgeLayout
+          Id="Package\generate a playlist from a workbook of songs.Paths[List 1]"
+          TopLeft="251.333333333333,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-75.8333333333333,45"
+              Start="0,0"
+              End="-75.8333333333333,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.2794307891332" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.2794307891332"
+                    Point2="0,18.2794307891332"
+                    Point3="-4,18.2794307891332" />
+                  <mssgle:LineSegment
+                    End="-71.8333333333333,18.2794307891332" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-71.8333333333333,18.2794307891332"
+                    Point2="-75.8333333333333,18.2794307891332"
+                    Point3="-75.8333333333333,22.2794307891332" />
+                  <mssgle:LineSegment
+                    End="-75.8333333333333,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-49.9722330729167,23.2794307891332,24.1111328125,9.451171875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\generate a playlist from a workbook of songs.Paths[List 2]"
+          TopLeft="299.666666666667,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="189.833333333333,35"
+              Start="0,0"
+              End="189.833333333333,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.2173350582148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.2173350582148"
+                    Point2="0,14.2173350582148"
+                    Point3="4,14.2173350582148" />
+                  <mssgle:LineSegment
+                    End="185.833333333333,14.2173350582148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="185.833333333333,14.2173350582148"
+                    Point2="189.833333333333,14.2173350582148"
+                    Point3="189.833333333333,18.2173350582148" />
+                  <mssgle:LineSegment
+                    End="189.833333333333,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="82.6755533854167,19.2173350582148,24.4822265625,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="179,42"
+          Id="Package\generate a playlist from a workbook of songs\combine the two lists"
+          TopLeft="244,241" />
+        <EdgeLayout
+          Id="Package\generate a playlist from a workbook of songs.Paths[List 11]"
+          TopLeft="175.5,208">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="129.5,33"
+              Start="0,0"
+              End="129.5,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.624584717608" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.624584717608"
+                    Point2="0,19.624584717608"
+                    Point3="4,19.624584717608" />
+                  <mssgle:LineSegment
+                    End="125.5,19.624584717608" />
+                  <mssgle:CubicBezierSegment
+                    Point1="125.5,19.624584717608"
+                    Point2="129.5,19.624584717608"
+                    Point3="129.5,23.624584717608" />
+                  <mssgle:LineSegment
+                    End="129.5,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="52.69443359375,24.624584717608,24.1111328125,9.451171875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\generate a playlist from a workbook of songs.Paths[List 21]"
+          TopLeft="489.5,198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-127.5,43"
+              Start="0,0"
+              End="-127.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5714285714286" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5714285714286"
+                    Point2="0,25.5714285714286"
+                    Point3="-4,25.5714285714286" />
+                  <mssgle:LineSegment
+                    End="-123.5,25.5714285714286" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-123.5,25.5714285714286"
+                    Point2="-127.5,25.5714285714286"
+                    Point3="-127.5,29.5714285714286" />
+                  <mssgle:LineSegment
+                    End="-127.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-75.99111328125,30.5714285714286,24.4822265625,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="98,42"
+          Id="Package\generate a playlist from a workbook of songs\Sort"
+          TopLeft="280,300" />
+        <EdgeLayout
+          Id="Package\generate a playlist from a workbook of songs.Paths[Union All Output 1]"
+          TopLeft="333.5,283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.5,38"
+              Start="0,0"
+              End="37,38">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34"
+                    Point2="0,38"
+                    Point3="4,38" />
+                  <mssgle:LineSegment
+                    End="37,38" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="12.5,43,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167,42"
+          Id="Package\generate a playlist from a workbook of songs\the playlist f songs"
+          TopLeft="266,371" />
+        <EdgeLayout
+          Id="Package\generate a playlist from a workbook of songs.Paths[Sort Output]"
+          TopLeft="329,342">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.5,29"
+              Start="0,0"
+              End="20.5,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5"
+                    Point2="0,14.5"
+                    Point3="4,14.5" />
+                  <mssgle:LineSegment
+                    End="16.5,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.5,14.5"
+                    Point2="20.5,14.5"
+                    Point3="20.5,18.5" />
+                  <mssgle:LineSegment
+                    End="20.5,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="2.25,19.5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\generate a playlist from a workbook of songs\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
